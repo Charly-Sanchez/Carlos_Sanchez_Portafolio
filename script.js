@@ -37,7 +37,7 @@ function efectoHabilidades() {
         document.getElementById("mate").classList.add("barra-progreso3");;
         document.getElementById("js").classList.add("barra-progreso4");
         document.getElementById("py").classList.add("barra-progreso5");
-        document.getElementById("ps").classList.add("barra-progreso6");
+        document.getElementById("redes").classList.add("barra-progreso6");
         
         
     }

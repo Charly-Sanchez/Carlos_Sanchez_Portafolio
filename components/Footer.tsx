@@ -16,12 +16,12 @@ export default function Footer() {
   const socialLinks = [
     {
       icon: FaGithub,
-      href: 'https://github.com/tuusuario',
+      href: 'https://github.com/Charly-Sanchez',
       label: 'GitHub'
     },
     {
       icon: FaLinkedin,
-      href: 'https://linkedin.com/in/tuusuario',
+      href: 'https://www.linkedin.com/in/carlos-sánchez-ba5422394',
       label: 'LinkedIn'
     }
   ];

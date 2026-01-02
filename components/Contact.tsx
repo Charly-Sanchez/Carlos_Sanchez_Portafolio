@@ -43,19 +43,19 @@ export default function Contact() {
     {
       icon: FaEnvelope,
       label: 'Email',
-      value: 'carlos.sanchez@ejemplo.com',
-      href: 'mailto:carlos.sanchez@ejemplo.com'
+      value: 'cs33074188@gmail.com',
+      href: 'mailto:cs33074188@gmail.com'
     },
     {
       icon: FaPhone,
       label: 'Teléfono',
-      value: '+503 1234-5678',
-      href: 'tel:+50312345678'
+      value: '+34 614 83 54 28',
+      href: 'tel:+34614835428'
     },
     {
       icon: FaMapMarkerAlt,
       label: 'Ubicación',
-      value: 'El Salvador',
+      value: 'España',
       href: null
     }
   ];
@@ -64,13 +64,13 @@ export default function Contact() {
     {
       icon: FaGithub,
       label: 'GitHub',
-      href: 'https://github.com/tuusuario',
+      href: 'https://github.com/Charly-Sanchez',
       color: 'hover:text-gray-400'
     },
     {
       icon: FaLinkedin,
       label: 'LinkedIn',
-      href: 'https://linkedin.com/in/tuusuario',
+      href: 'https://www.linkedin.com/in/carlos-sánchez-ba5422394',
       color: 'hover:text-blue-400'
     }
   ];

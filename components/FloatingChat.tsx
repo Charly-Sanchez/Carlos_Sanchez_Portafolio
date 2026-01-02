@@ -20,6 +20,7 @@ interface Message {
   sender: 'visitor' | 'admin';
   timestamp: any;
   userId: string;
+  read?: boolean;
 }
 
 export default function FloatingChat() {

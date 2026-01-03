@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from 'framer-motion';
-import { FaGithub, FaLinkedin, FaHeart } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaHeart, FaDownload } from 'react-icons/fa';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -97,6 +97,24 @@ export default function Footer() {
 
         {/* Separador */}
         <div className="border-t border-white/10 my-8"></div>
+
+        {/* Botón Descargar CV */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          viewport={{ once: true }}
+          className="text-center mb-8"
+        >
+          <a
+            href="/CV_Carlos_Sanchez.pdf"
+            download
+            className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full font-semibold hover:from-blue-600 hover:to-purple-700 transition-all transform hover:scale-105 shadow-lg"
+          >
+            <FaDownload />
+            Descargar CV
+          </a>
+        </motion.div>
 
         {/* Copyright y Créditos */}
         <motion.div

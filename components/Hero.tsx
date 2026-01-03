@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Typewriter from './Typewriter';
+import { FaDownload } from 'react-icons/fa';
 
 export default function Hero() {
   return (
@@ -111,7 +112,7 @@ export default function Hero() {
               className="flex gap-4 md:gap-6 justify-center md:justify-start flex-wrap"
             >
               <motion.a
-                href="#projects"
+                href="#proyectos"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="px-6 md:px-8 py-3 md:py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full font-semibold shadow-lg hover:shadow-2xl transition-shadow duration-300 text-sm md:text-base"
@@ -119,12 +120,22 @@ export default function Hero() {
                 Ver Proyectos
               </motion.a>
               <motion.a
-                href="#contact"
+                href="#contacto"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="px-6 md:px-8 py-3 md:py-4 bg-white/5 backdrop-blur-sm border border-white/20 text-white rounded-full font-semibold hover:bg-white/10 transition-colors duration-300 text-sm md:text-base"
               >
                 Contactar
+              </motion.a>
+              <motion.a
+                href="/CV_Carlos_Sanchez.pdf"
+                download
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="px-6 md:px-8 py-3 md:py-4 bg-white/5 backdrop-blur-sm border border-white/20 text-white rounded-full font-semibold hover:bg-white/10 transition-colors duration-300 text-sm md:text-base flex items-center gap-2"
+              >
+                <FaDownload />
+                Descargar CV
               </motion.a>
             </motion.div>
           </div>

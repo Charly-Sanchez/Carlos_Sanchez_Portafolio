@@ -7,7 +7,7 @@ import Typewriter from './Typewriter';
 export default function Hero() {
   return (
     <section
-      id="home"
+      id="inicio"
       className="min-h-screen flex items-center justify-center px-6 pt-20 md:pt-0"
     >
       <div className="max-w-6xl mx-auto">

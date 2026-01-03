@@ -82,7 +82,7 @@ export default function Projects() {
 
   return (
     <section
-      id="projects"
+      id="proyectos"
       ref={ref}
       className="min-h-screen flex items-center justify-center px-6 py-20 md:py-32"
     >

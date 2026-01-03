@@ -9,11 +9,10 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
 
   const menuItems = [
-    { name: 'Inicio', href: '#home' },
-    { name: 'Sobre Mí', href: '#about' },
-    { name: 'Proyectos', href: '#projects' },
-    { name: 'Habilidades', href: '#skills' },
-    { name: 'Contacto', href: '#contact' },
+    { name: 'Inicio', href: '#inicio' },
+    { name: 'Sobre Mí', href: '#sobre-mi' },
+    { name: 'Proyectos', href: '#proyectos' },
+    { name: 'Contacto', href: '#contacto' },
   ];
 
   useEffect(() => {

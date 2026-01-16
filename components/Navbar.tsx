@@ -2,6 +2,7 @@
 
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useState, useEffect } from 'react';
 
 export default function Navbar() {
@@ -44,6 +45,20 @@ export default function Navbar() {
           }`}
         >
           <ul className="flex gap-8 items-center">
+            {/* Logo */}
+            <li className="mr-2">
+              <Link href="#inicio" className="block">
+                <div className="relative w-10 h-10 rounded-full overflow-hidden">
+                  <Image
+                    src="/Logo.jpeg"
+                    alt="Carlos Sánchez Logo"
+                    fill
+                    className="object-cover"
+                    priority
+                  />
+                </div>
+              </Link>
+            </li>
             {menuItems.map((item, index) => (
               <motion.li
                 key={item.name}
@@ -77,8 +92,16 @@ export default function Navbar() {
           }`}
         >
           <div className="flex justify-between items-center">
-            <Link href="#home" className="text-white font-bold text-lg">
-              CS
+            <Link href="#inicio" className="block">
+              <div className="relative w-10 h-10 rounded-full overflow-hidden">
+                <Image
+                  src="/Logo.jpeg"
+                  alt="Carlos Sánchez Logo"
+                  fill
+                  className="object-cover"
+                  priority
+                />
+              </div>
             </Link>
 
             {/* Hamburger Button */}

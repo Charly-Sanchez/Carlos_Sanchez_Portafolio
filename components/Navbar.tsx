@@ -47,13 +47,14 @@ export default function Navbar() {
           <ul className="flex gap-8 items-center">
             {/* Logo */}
             <li className="mr-2">
-              <Link href="#inicio" className="block">
-                <div className="relative w-10 h-10 rounded-full overflow-hidden">
+              <Link href="#inicio" className="flex items-center hover:scale-110 transition-transform duration-300">
+                <div className="relative w-12 h-12 rounded-full overflow-hidden bg-white/5 p-1">
                   <Image
                     src="/Logo.jpeg"
                     alt="Carlos Sánchez Logo"
-                    fill
-                    className="object-cover"
+                    width={48}
+                    height={48}
+                    className="object-cover rounded-full"
                     priority
                   />
                 </div>
@@ -92,13 +93,14 @@ export default function Navbar() {
           }`}
         >
           <div className="flex justify-between items-center">
-            <Link href="#inicio" className="block">
-              <div className="relative w-10 h-10 rounded-full overflow-hidden">
+            <Link href="#inicio" className="flex items-center">
+              <div className="relative w-11 h-11 rounded-full overflow-hidden bg-white/5 p-1">
                 <Image
                   src="/Logo.jpeg"
                   alt="Carlos Sánchez Logo"
-                  fill
-                  className="object-cover"
+                  width={44}
+                  height={44}
+                  className="object-cover rounded-full"
                   priority
                 />
               </div>

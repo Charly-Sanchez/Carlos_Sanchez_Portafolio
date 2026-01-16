@@ -18,7 +18,7 @@ export default function Hero() {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.5 }}
-            className="relative w-64 h-64 md:w-80 md:h-80 flex-shrink-0"
+            className="relative w-72 h-72 md:w-96 md:h-96 flex-shrink-0"
           >
             {/* Gradient Background Ring */}
             <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 opacity-75 blur-xl animate-pulse"></div>
@@ -29,7 +29,7 @@ export default function Hero() {
                 src="/Foto.jpeg"
                 alt="Carlos Sánchez"
                 fill
-                className="object-cover"
+                className="object-cover object-top"
                 priority
               />
             </div>

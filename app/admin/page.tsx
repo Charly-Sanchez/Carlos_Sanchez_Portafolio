@@ -22,13 +22,13 @@ interface Message {
   text: string;
   sender: 'visitor' | 'admin';
   timestamp: any;
-  userId: string;
+  sessionId: string;
   userName: string;
   read: boolean;
 }
 
 interface Conversation {
-  userId: string;
+  sessionId: string;
   userName: string;
   lastMessage: string;
   lastTimestamp: any;
@@ -39,7 +39,7 @@ export default function AdminPanel() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [password, setPassword] = useState('');
   const [conversations, setConversations] = useState<Conversation[]>([]);
-  const [selectedUserId, setSelectedUserId] = useState<string | null>(null);
+  const [selectedSessionId, setSelectedSessionId] = useState<string | null>(null);
   const [messages, setMessages] = useState<Message[]>([]);
   const [newMessage, setNewMessage] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -62,9 +62,10 @@ export default function AdminPanel() {
 
       snapshot.forEach((doc) => {
         const message = doc.data() as Message;
-        if (!conversationsMap.has(message.userId)) {
-          conversationsMap.set(message.userId, {
-            userId: message.userId,
+        // Validar que sessionId existe (ignorar mensajes viejos con userId)
+        if (message.sessionId && !conversationsMap.has(message.sessionId)) {
+          conversationsMap.set(message.sessionId, {
+            sessionId: message.sessionId,
             userName: message.userName || 'Usuario Anónimo',
             lastMessage: message.text,
             lastTimestamp: message.timestamp,
@@ -74,15 +75,17 @@ export default function AdminPanel() {
       });
 
       // Contar mensajes no leídos
-      for (const [userId, conv] of conversationsMap.entries()) {
-        const unreadQuery = query(
-          messagesRef,
-          where('userId', '==', userId),
-          where('sender', '==', 'visitor'),
-          where('read', '==', false)
-        );
-        const unreadSnapshot = await getDocs(unreadQuery);
-        conv.unreadCount = unreadSnapshot.size;
+      for (const [sessionId, conv] of conversationsMap.entries()) {
+        if (sessionId) { // Validar que sessionId no sea undefined
+          const unreadQuery = query(
+            messagesRef,
+            where('sessionId', '==', sessionId),
+            where('sender', '==', 'visitor'),
+            where('read', '==', false)
+          );
+          const unreadSnapshot = await getDocs(unreadQuery);
+          conv.unreadCount = unreadSnapshot.size;
+        }
       }
 
       setConversations(Array.from(conversationsMap.values()));
@@ -93,12 +96,12 @@ export default function AdminPanel() {
 
   // Cargar mensajes de conversación seleccionada
   useEffect(() => {
-    if (!isAuthenticated || !selectedUserId) return;
+    if (!isAuthenticated || !selectedSessionId) return;
 
     const messagesRef = collection(db, 'messages');
     const q = query(
       messagesRef,
-      where('userId', '==', selectedUserId),
+      where('sessionId', '==', selectedSessionId),
       orderBy('timestamp', 'asc')
     );
 
@@ -119,7 +122,7 @@ export default function AdminPanel() {
     });
 
     return () => unsubscribe();
-  }, [isAuthenticated, selectedUserId]);
+  }, [isAuthenticated, selectedSessionId]);
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
@@ -139,14 +142,14 @@ export default function AdminPanel() {
 
   const handleSendMessage = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!newMessage.trim() || !selectedUserId || isLoading) return;
+    if (!newMessage.trim() || !selectedSessionId || isLoading) return;
 
     setIsLoading(true);
     try {
       await addDoc(collection(db, 'messages'), {
         text: newMessage.trim(),
         sender: 'admin',
-        userId: selectedUserId,
+        sessionId: selectedSessionId,
         userName: 'Carlos Sánchez',
         timestamp: serverTimestamp(),
         read: true
@@ -238,10 +241,10 @@ export default function AdminPanel() {
             <div className="space-y-2">
               {conversations.map((conv) => (
                 <button
-                  key={conv.userId}
-                  onClick={() => setSelectedUserId(conv.userId)}
+                  key={conv.sessionId}
+                  onClick={() => setSelectedSessionId(conv.sessionId)}
                   className={`w-full p-4 rounded-lg border transition-all text-left ${
-                    selectedUserId === conv.userId
+                    selectedSessionId === conv.sessionId
                       ? 'bg-blue-500/20 border-blue-500'
                       : 'bg-white/5 border-white/10 hover:bg-white/10'
                   }`}
@@ -270,14 +273,14 @@ export default function AdminPanel() {
 
         {/* Chat */}
         <div className="flex-1 flex flex-col">
-          {selectedUserId ? (
+          {selectedSessionId ? (
             <>
               {/* Header del chat */}
               <div className="p-4 border-b border-white/10">
                 <div className="flex items-center gap-2">
                   <FaUser className="text-blue-400" />
                   <span className="font-semibold">
-                    {conversations.find(c => c.userId === selectedUserId)?.userName}
+                    {conversations.find(c => c.sessionId === selectedSessionId)?.userName}
                   </span>
                 </div>
               </div>

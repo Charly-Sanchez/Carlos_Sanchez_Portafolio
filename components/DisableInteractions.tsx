@@ -43,11 +43,11 @@ export default function DisableInteractions() {
     };
 
     // Add event listeners
-    document.addEventListener('contextmenu', handleContextMenu);
-    document.addEventListener('selectstart', handleSelectStart);
-    document.addEventListener('copy', handleCopy);
-    document.addEventListener('keydown', handleKeyDown);
-    document.addEventListener('dragstart', handleDragStart);
+    // document.addEventListener('contextmenu', handleContextMenu);
+    // document.addEventListener('selectstart', handleSelectStart);
+    // document.addEventListener('copy', handleCopy);
+    // document.addEventListener('keydown', handleKeyDown);
+    // document.addEventListener('dragstart', handleDragStart);
 
     // Add CSS to prevent selection
     const style = document.createElement('style');

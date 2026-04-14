@@ -72,7 +72,7 @@ export default function Projects() {
     {
       id: 4,
       title: 'Colegio Galileo Galilei',
-      description: 'Plataforma web para institución educativa pre-universitaria donde trabajo como docente. Incluye información académica, galería de actividades, y sistema de contacto para futuros estudiantes.',
+      description: 'Plataforma web para colegio mixto preuniversitario donde trabajé durante 1 año como docente. Incluye información académica, galería de actividades, y sistema de contacto para futuros estudiantes.',
       technologies: ['HTML5', 'CSS3', 'JavaScript', 'UI/UX Design'],
       image: '/projects/colegio-galilei.jpg',
       demo: 'https://www.colgalileoantigua.edu.gt/index.html',

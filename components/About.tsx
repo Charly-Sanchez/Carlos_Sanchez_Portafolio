@@ -68,7 +68,12 @@ export default function About() {
     {
       icon: '👨‍🏫',
       title: 'Docencia en Programación',
-      description: 'Formación de desarrolladores en programación y matemáticas.',
+      description: 'Experiencia académica formando estudiantes en programación y matemáticas.',
+    },
+    {
+      icon: '👔',
+      title: 'Dirección de TI',
+      description: 'Liderazgo estratégico en tecnología e innovación empresarial.',
     },
     {
       icon: '🎨',
@@ -117,16 +122,22 @@ export default function About() {
                   Carlos Sánchez
                 </h3>
                 <p className="text-lg text-white/80">
-                  Desarrollador Web Senior | Docente | Estudiante de Ingeniería en Sistemas
+                  Desarrollador Web Senior | Docente | Director de TI | Estudiante de Ingeniería en Sistemas
                 </p>
               </div>
             </div>
 
             <p className="text-white/70 leading-relaxed text-base mb-6">
-              Desarrollador apasionado desde 2017, especializado en crear soluciones web elegantes 
-              y escalables. Actualmente trabajo como freelance y comparto mi conocimiento como 
-              catedrático en el Colegio Galileo Galilei, enseñando programación y matemáticas. 
-              Mi enfoque está en el aprendizaje continuo y la excelencia técnica.
+              Desarrollador apasionado desde 2017, especializado en el diseño e implementación de soluciones web
+              escalables, mantenibles y orientadas a resultados. Actualmente me desempeño como Director de TI en
+              Todo Tiene Arreglo SL, en Sevilla, España, liderando la estrategia tecnológica y la modernización de
+              procesos internos. Entre mis responsabilidades actuales se encuentra la implementación de un CRM
+              especializado para la empresa, incluyendo levantamiento de requerimientos, modelado de flujos,
+              automatización de procesos, integración con herramientas operativas y seguimiento de indicadores
+              clave para optimizar la operación y la toma de decisiones.
+              En 2025 trabajé durante un año como catedrático en el Colegio Mixto Preuniversitario Galileo Galilei,
+              enseñando programación y matemáticas. Mi enfoque profesional combina liderazgo, aprendizaje continuo
+              y excelencia técnica para construir soluciones de alto impacto.
             </p>
 
             {/* Soft Skills */}

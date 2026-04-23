@@ -64,7 +64,7 @@ export default function Contact() {
     {
       icon: FaGithub,
       label: 'GitHub',
-      href: 'https://github.com/Charly-Sanchez',
+      href: 'https://github.com/Nonebyter',
       color: 'hover:text-gray-400'
     },
     {
